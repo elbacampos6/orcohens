@@ -1,0 +1,21 @@
+Package: orcohens
+Type: Package
+Title: Calculates Prevalence Rates and Cohen's D Equivalent to Odds Ratio
+Version: 0.1.0
+Author: Adriana Campos
+Maintainer: Adriana Campos <elba@usf.edu>
+Description: This package helps calculate prevalences in unexposed group, 
+    exposed group, Odds ratio, and the Cohen's D equivalent. This will be helpful for clinicians
+    and other individuals who are not familiar with ORs and their magnitude by converting an OR
+    to the the more well-known Cohen's D. 
+License: GNU (>=3)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr, rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+VignetteBuilder: knitr

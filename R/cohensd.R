@@ -1,0 +1,60 @@
+#This program is supposed to make it easy to calculate cohen'd values from the p0 and or from your study. Cohen's d is helpful in determining magnitude
+#of an effect and can help clinicians and others understand how important their ORs may be.
+
+#How Big is a Big Odds Ratio? Interpreting the Magnitudes of Odds Ratios in Epidemiological Studies
+#H. Chen, P. Cohen and S. Chen
+#Communications in Statistics - Simulation and Computation 2010 Vol. 39 Issue 4 Pages 860-864
+
+#DOI: https://doi.org/10.1080/03610911003650383
+
+
+
+cohen_values <- matrix(c(0.04, 0.04, 0.04, 0.04, 0.04, 0.05, 0.05, 0.05, 0.05, 0.05, 0.07, 0.07, 0.08, 0.08, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09,
+                         0.10, 0.11, 0.11, 0.12, 0.12, 0.13, 0.13, 0.13, 0.13, 0.14, 0.13, 0.14, 0.15, 0.15, 0.16, 0.16, 0.17, 0.17, 0.17, 0.18,
+                         0.15, 0.17, 0.18, 0.19, 0.19, 0.20, 0.20, 0.21, 0.21, 0.21, 0.18, 0.20, 0.21, 0.22, 0.22, 0.23, 0.24, 0.24, 0.25, 0.25,
+                         0.20, 0.22, 0.24, 0.25, 0.25, 0.26, 0.27, 0.27, 0.28, 0.28, 0.23, 0.25, 0.26, 0.27, 0.28, 0.29, 0.30, 0.30, 0.31, 0.31,
+                         0.25, 0.27, 0.29, 0.30, 0.31, 0.32, 0.33, 0.33, 0.34, 0.34, 0.27, 0.29, 0.31, 0.32, 0.34, 0.35, 0.35, 0.36, 0.37, 0.37,
+                         0.44, 0.48, 0.51, 0.53, 0.55, 0.56, 0.58, 0.59, 0.60, 0.61, 0.56, 0.62, 0.65, 0.68, 0.71, 0.73, 0.74, 0.76, 0.77, 0.78,
+                         0.66, 0.73, 0.77, 0.81, 0.83, 0.85, 0.87, 0.89, 0.90, 0.92, 0.75, 0.82, 0.87, 0.91, 0.94, 0.96, 0.98, 1.00, 1.02, 1.03,
+                         0.82, 0.90, 0.96, 1.00, 1.03, 1.06, 1.08, 1.10, 1.11, 1.12, 0.89, 0.98, 1.03, 1.08, 1.11, 1.14, 1.16, 1.18, 1.19, 1.21,
+                         0.94, 1.04, 1.10, 1.15, 1.18, 1.21, 1.23, 1.25, 1.27, 1.28, 1.00, 1.10, 1.16, 1.21, 1.25, 1.27, 1.30, 1.32, 1.33, 1.35,
+                         1.21, 1.33, 1.40, 1.46, 1.50, 1.53, 1.55, 1.57, 1.59, 1.60, 1.36, 1.50, 1.58, 1.64, 1.68, 1.71, 1.73, 1.75, 1.76, 1.78,
+                         1.49, 1.64, 1.72, 1.78, 1.82, 1.85, 1.87, 1.89, 1.90, 1.91, 1.60, 1.75, 1.83, 1.89, 1.93, 1.96, 1.98, 2.00, 2.01, 2.02), nrow=22, ncol=10)
+
+
+
+colnames(cohen_values) <-c("p0.01","p0.02","p0.03","p0.04","p0.05", "p0.06", "p0.07", "p0.08", "p0.09", "p0.10")
+
+#These are the Odds Ratios
+rownames(cohen_values)<- c("1.1","1.2","1.3","1.4","1.5","1.6","1.7", "1.8","1.9","2.0","3.0","4.0","5.0","6.0","7.0","8.0","9.0","10.0","15.0","20.0","25.0","30.0")
+
+#Convert to a data frame
+Final_chart <- as.data.frame(cohen_values)
+
+#Check to ensure it is a data frame
+is.data.frame(Final_chart)
+
+#Make function to where you can insert your known p0 and OR and get a cohen's d from the chart
+#known p = 0.01 and known 0R = 1.1 you should get a value of 0.04
+
+#Function for getting the Cohen's d from the chart
+#' Cohen's D coversion from OR
+#'
+#' @param p0 Proportion of the unexposed who had event of interest
+#' @param or Odds Ratio
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' cohensd(.01,2.0)
+cohensd <- function(p0, or) {
+  value <- p0[or]
+  return(value)
+}
+
+
+
+
+
+
