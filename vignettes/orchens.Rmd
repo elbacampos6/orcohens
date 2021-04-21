@@ -43,7 +43,7 @@ p1 <- function(event, exposure, exposure2) {
   p1_calc <- p1_events/events
   return(p1_calc)
 }
-#p0(event = DATASET$Event, exposure = DATASET$Wave, exposure2 = "Immediate Incentive")
+#p1(event = DATASET$Event, exposure = DATASET$Wave, exposure2 = "Immediate Incentive")
 ```
 
 This calculates the Odds ratio:
